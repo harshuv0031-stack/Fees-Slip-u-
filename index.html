@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H.A Coaching Centre - Fees Slip</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <section class="form-box">
+        <div class="brand-badge">H.A</div>
+        <div class="heading">
+            <span class="eyebrow">STUDENT ACCOUNTS</span>
+            <h1>H.A Coaching Centre</h1>
+            <p>Generate a clean and professional fees receipt</p>
+        </div>
+
+        <div class="form-grid">
+            <div class="field full">
+                <label for="studentName">Student Name</label>
+                <input type="text" id="studentName" placeholder="Enter student's name">
+            </div>
+            <div class="field">
+                <label for="rollNo">Roll No.</label>
+                <input type="text" id="rollNo" placeholder="Enter roll number">
+            </div>
+            <div class="field">
+                <label for="date">Date</label>
+                <input type="date" id="date">
+            </div>
+            <div class="field">
+                <label for="feeAmount">Total Fee Amount (₹)</label>
+                <input type="number" id="feeAmount" min="0" step="0.01" placeholder="e.g. 2000">
+            </div>
+            <div class="field">
+                <label for="dueAmount">Submitted Fee (₹)</label>
+                <input type="number" id="dueAmount" min="0" step="0.01" placeholder="e.g. 1200">
+            </div>
+            <div class="field full">
+                <label for="externalCharge">External Charge (₹) <span>Optional</span></label>
+                <input type="number" id="externalCharge" min="0" step="0.01" placeholder="Enter external charge, if any">
+            </div>
+        </div>
+
+        <div class="live-summary">
+            <div><span>Total Payable</span><strong id="liveTotal">₹0.00</strong></div>
+            <div><span>Submitted</span><strong id="liveSubmitted">₹0.00</strong></div>
+            <div class="pending"><span>Remaining Pending</span><strong id="livePending">₹0.00</strong></div>
+        </div>
+
+        <div class="buttons">
+            <button class="generate" type="button" onclick="generateSlip()">Generate Fees Slip</button>
+            <button class="reset" type="button" onclick="resetForm()">Reset</button>
+        </div>
+    </section>
+
+    <section class="slip" id="feesSlip">
+        <div class="slip-header">
+            <div class="slip-logo">H.A</div>
+            <div>
+                <h2>H.A Coaching Centre</h2>
+                <p>Quality Education • Better Future</p>
+            </div>
+            <div class="paid-badge" id="statusBadge">FEE RECEIPT</div>
+        </div>
+
+        <div class="receipt-title">
+            <span>FEES RECEIPT</span>
+            <small>Official Payment Record</small>
+        </div>
+
+        <div class="student-details">
+            <div class="detail-row"><div class="label">Student Name</div><div class="value" id="showName">-</div></div>
+            <div class="detail-row"><div class="label">Roll No.</div><div class="value" id="showRoll">-</div></div>
+            <div class="detail-row"><div class="label">Date</div><div class="value" id="showDate">-</div></div>
+        </div>
+
+        <table class="amount-table">
+            <thead><tr><th>Particular</th><th>Amount</th></tr></thead>
+            <tbody>
+                <tr><td>Total Fee Amount</td><td>₹ <span id="showFee">0.00</span></td></tr>
+                <tr><td>External Charge</td><td>₹ <span id="showExternal">0.00</span></td></tr>
+                <tr class="payable"><td>Total Payable Amount</td><td>₹ <span id="showTotal">0.00</span></td></tr>
+                <tr class="submitted"><td>Fee Submitted</td><td>₹ <span id="showSubmitted">0.00</span></td></tr>
+                <tr class="pending"><td>Remaining Pending Fees</td><td>₹ <span id="showPending">0.00</span></td></tr>
+            </tbody>
+        </table>
+
+        <div class="payment-summary">
+            <div><span>Submitted</span><strong id="summarySubmitted">₹0.00</strong></div>
+            <div class="summary-pending"><span>Remaining Pending</span><strong id="summaryPending">₹0.00</strong></div>
+        </div>
+
+        <div class="signature">
+            <div class="signature-box">Authorised Signature</div>
+        </div>
+        <p class="receipt-note">Please keep this receipt for your records.</p>
+    </section>
+
+    <button class="print-btn" id="printButton" type="button" onclick="window.print()">🖨 Print Fees Slip</button>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
